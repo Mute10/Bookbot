@@ -3,8 +3,8 @@ import requests
 from bs4 import BeautifulSoup
 
 #below you'll see examples of Web scraping with error handling, Text analysis (word count and character frequency),
-#File handling and Multiple data sources (web and local file)
-#polished off a command-line interface where users can input their own Wikipedia URLs to analyze
+#File handling and Multiple data sources (web and text file)
+#polished off with a command-line interface where users can input their own Wikipedia URLs to analyze
 
 
 def commonWords(text, numOfWords=10): 
@@ -64,16 +64,16 @@ def analysis(text, source): #Performs text analysis on the scraped content.
 
 
 def bookDict(text):#the purpose of this function it to count how any letters are in a file
-   charCount = {}  # if a letter doesn't exist i won't print anything
-   for t in text:               #remember to import string is i use the above line
+   charCount = {}  # if a letter doesn't exist it won't print anything
+   for t in text:               
        t = t.lower() 
-       if t in string.ascii_lowercase:
+       if t in string.ascii_lowercase: #import string or won't work
         charCount[t] = charCount.get(t, 0) + 1 #calling charCount by itself will turn everything to 0(, . and spaces)
    return charCount
  
 
 def main(): #main menu loop for user interaction
-    #wiki analysis, Accepts any valid Wikipedia URL in the format:
+    #wiki analysis, Accepts any valid Wikipedia URL 
     wikiUrl = "https://en.wikipedia.org/wiki/Breaking_Benjamin"
     wikiContent = webScrap(wikiUrl)
     analysis(wikiContent, "Breaking Benjamin Article")
@@ -88,7 +88,7 @@ def main(): #main menu loop for user interaction
         print("\nMain Menu:")
         print("1. Analyze Wikipedia Article") #I chose a nautilus for my first entry. 
         print("2. Exit")
-        #the nautilus uses its shell chambers to control buoyancy. It's rather similar to how we control program flow...
+
         choice = input("Enter your choice (1-2): ")
         
         if choice == "1":
