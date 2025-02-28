@@ -3,9 +3,6 @@ import requests
 from bs4 import BeautifulSoup 
 #pip install requests beautifulsoup4
 
-#below you'll see examples of Web scraping with error handling, Text analysis (word count and character frequency) and
-#Data handling. Polished off with a web scrapping command-line where users can input their own Wikipedia URLs for data processing.
-
 
 def commonWords(text, numOfWords=10): 
     #text (str): The input text to analyze
